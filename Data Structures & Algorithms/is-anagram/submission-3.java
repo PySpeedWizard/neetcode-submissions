@@ -1,0 +1,19 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+     int[] fr1 = new int[26];
+     
+     for(int i =0; i< s.length(); i++){
+        fr1[s.charAt(i)-'a']++;
+     }
+     for(int i = 0; i< t.length() ;i++){
+        fr1[t.charAt(i)-'a']--;
+     }
+     for(int i : fr1){
+        if(i != 0){
+            return false;
+        }
+     }
+     return true;
+
+    }
+}
