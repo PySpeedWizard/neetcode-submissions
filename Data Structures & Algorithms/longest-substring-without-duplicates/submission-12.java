@@ -1,0 +1,72 @@
+class Solution {
+    /*
+    public int lengthOfLongestSubstring(String s) {
+       int[] map = new int[257];
+       int left =0;
+       int right =0;
+       int maxLen =0;
+       Arrays.fill(map, -1);
+       
+       while( right < s.length()){
+        char ch = s.charAt(right);
+
+        if(map[ch] >= left){
+          left = Math.max(left, map[ch]+1);
+        }
+
+        maxLen = Math.max(maxLen, right-left+1);
+
+        map[ch] = right;
+        right++;
+       }
+        
+       return maxLen;
+    }
+
+
+
+
+
+    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public int lengthOfLongestSubstring(String s) {
+        if(s.length() == 1) return 1;
+
+         Map<Character, Integer> map = new HashMap<>(255);
+         int mLen = 0;
+         int i =0;
+       for(int  j = 0; j < s.length(); j++){
+          char ch = s.charAt(j);
+          if(map.containsKey(ch)){
+             i = Math.max(map.get(ch)+1,i);
+          }
+          map.put(ch,j);
+             mLen = Math.max(mLen, j-i+1);
+       }
+           
+            
+
+        
+        return mLen;
+    }
+}
